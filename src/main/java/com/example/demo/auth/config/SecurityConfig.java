@@ -28,7 +28,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.example.demo.auth.service.CustomUserDetailsService;
-import com.example.demo.auth.config.CustomOAuth2SuccessHandler;
+
 
 import lombok.RequiredArgsConstructor;
 
@@ -43,7 +43,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http,
-            CustomOAuth2SuccessHandler successHandler,
+
             ObjectProvider<ClientRegistrationRepository> clientRegistrationRepositoryProvider
     ) throws Exception {
 
@@ -77,8 +77,10 @@ public class SecurityConfig {
 
         // Configure OAuth2 login only when client registrations are available
         if (clientRegistrationRepositoryProvider.getIfAvailable() != null) {
-            http = http.oauth2Login(oauth2 -> oauth2.successHandler(successHandler));
+            // success handler omitted (class removed)
+            http = http.oauth2Login(oauth2 -> {});
         }
+
 
         http = http.oauth2ResourceServer(oauth -> oauth.jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthConverter())));
 

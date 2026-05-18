@@ -24,6 +24,7 @@ import java.io.IOException;
 
 
 @RequiredArgsConstructor
+@Component
 public class CustomOAuth2SuccessHandler implements AuthenticationSuccessHandler {
 
     private final JwtTokenService jwtService;

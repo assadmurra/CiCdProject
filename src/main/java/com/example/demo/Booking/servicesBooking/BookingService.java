@@ -31,7 +31,7 @@ import com.example.demo.Booking.filterBooking.BookingSpec;
 import com.example.demo.Booking.servicesBooking.CancellationPolicyService.PolicyResult;
 import com.example.demo.ExceptionHandler.BookingException;
 import com.example.demo.ExceptionHandler.ResourceNotFoundException;
-import com.example.demo.auth.notification.EmailService;
+
 import com.example.demo.catalog.entity.Guest;
 import com.example.demo.catalog.entity.Room;
 import com.example.demo.catalog.repository.GuestRepository;
@@ -55,7 +55,7 @@ public class BookingService {
     private final CancellationPolicyService cancellationPolicyService;
     private final BookingMapper bookingMapper;
     private final BookingPricingFacade bookingPricingFacade;
-    private final EmailService emailService;
+
 
     // ─────────────────────────────────────────────────────────────────────────
     // CREATE BOOKING
@@ -137,11 +137,7 @@ public BookingResponse createBooking(CreateBookingRequest request) {
     log.info("Booking {} created successfully", booking.getId());
    
             
-    emailService.sendEmail(
-            guest.getUser().getEmail(),
-            "Booking Created",
-            "Your booking has been created successfully. Booking ID: " + booking.getId()
-    );
+ 
 
     return bookingMapper.toResponse(booking);
 }

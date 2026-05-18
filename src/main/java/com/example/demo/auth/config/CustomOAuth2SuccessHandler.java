@@ -22,7 +22,7 @@ import java.util.UUID;
 
 import java.io.IOException;
 
-@Component
+
 @RequiredArgsConstructor
 public class CustomOAuth2SuccessHandler implements AuthenticationSuccessHandler {
 

@@ -1,9 +1,9 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:236411226681:task-definition/hotel-task:3",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:782802710615:task-definition/hotel-task:1",
   "containerDefinitions": [
     {
       "name": "hotel-app-container",
-      "image": "236411226681.dkr.ecr.us-east-1.amazonaws.com/hotel-booking-app:latest",
+      "image": "782802710615.dkr.ecr.us-east-1.amazonaws.com/deploylab:latest",
       "cpu": 0,
       "portMappings": [
         {
@@ -21,8 +21,8 @@
           "value": "8080"
         },
         {
-          "name": "MYSQL_HOST",
-          "value": "hotel-booking-db.c1dcfkzcgneq.us-east-1.rds.amazonaws.com"
+          "name": "JWT_SECRET",
+          "value": "G/pkuQN+f5Ggp5DpGSsLiESIQUNyMupBkhLO7bBpxn4="
         },
         {
           "name": "SPRING_JPA_HIBERNATE_DDL_AUTO",
@@ -34,28 +34,16 @@
       "volumesFrom": [],
       "secrets": [
         {
-          "name": "EMAIL_PASSWORD",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:236411226681:secret:rds-db-credentials/db-MQOBW4CSP7ABUQ3TCWU74ZGIJQ/admin/1777310780693-aEoz2I:EMAIL_PASSWORD::"
-        },
-        {
-          "name": "GOOGLE_CLIENT_ID",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:236411226681:secret:rds-db-credentials/db-MQOBW4CSP7ABUQ3TCWU74ZGIJQ/admin/1777310780693-aEoz2I:GOOGLE_CLIENT_ID::"
-        },
-        {
-          "name": "GOOGLE_CLIENT_SECRET",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:236411226681:secret:rds-db-credentials/db-MQOBW4CSP7ABUQ3TCWU74ZGIJQ/admin/1777310780693-aEoz2I:GOOGLE_CLIENT_SECRET::"
-        },
-        {
-          "name": "JWT_SECRET",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:236411226681:secret:rds-db-credentials/db-MQOBW4CSP7ABUQ3TCWU74ZGIJQ/admin/1777310780693-aEoz2I:jwt_secret::"
+          "name": "MYSQL_HOST",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:782802710615:secret:database-secret-ryhAZV:host::"
         },
         {
           "name": "SPRING_DATASOURCE_PASSWORD",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:236411226681:secret:rds-db-credentials/db-MQOBW4CSP7ABUQ3TCWU74ZGIJQ/admin/1777310780693-aEoz2I:password::"
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:782802710615:secret:database-secret-ryhAZV:password::"
         },
         {
           "name": "SPRING_DATASOURCE_USERNAME",
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:236411226681:secret:rds-db-credentials/db-MQOBW4CSP7ABUQ3TCWU74ZGIJQ/admin/1777310780693-aEoz2I:username::"
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:782802710615:secret:database-secret-ryhAZV:username::"
         }
       ],
       "ulimits": [],
@@ -73,10 +61,10 @@
     }
   ],
   "family": "hotel-task",
-  "taskRoleArn": "arn:aws:iam::236411226681:role/LabRole",
-  "executionRoleArn": "arn:aws:iam::236411226681:role/LabRole",
+  "taskRoleArn": "arn:aws:iam::782802710615:role/LabRole",
+  "executionRoleArn": "arn:aws:iam::782802710615:role/LabRole",
   "networkMode": "awsvpc",
-  "revision": 3,
+  "revision": 1,
   "volumes": [],
   "status": "ACTIVE",
   "requiresAttributes": [
@@ -126,8 +114,8 @@
   ],
   "cpu": "512",
   "memory": "1024",
-  "registeredAt": "2026-05-13T09:48:54.626Z",
-  "registeredBy": "arn:aws:sts::236411226681:assumed-role/voclabs/user4788305=Tonyq",
+  "registeredAt": "2026-04-29T20:21:13.336Z",
+  "registeredBy": "arn:aws:sts::782802710615:assumed-role/voclabs/user4788348=Assad",
   "enableFaultInjection": false,
   "tags": []
 }

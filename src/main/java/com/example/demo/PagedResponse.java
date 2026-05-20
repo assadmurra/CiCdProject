@@ -1,15 +1,15 @@
 package com.example.demo;
 
 import java.util.List;
-import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Page;     
 
 
 
 
-public class PagedResponse<T> {
- private List<T> content;
- private int page;
- private int size;
+public class PagedResponse<T> {         
+ private List<T> content;       
+ private int page;        
+ private int size;   
  private long totalElements;
  private int totalPages;
  private boolean last;
